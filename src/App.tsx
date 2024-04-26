@@ -1,35 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styled from 'styled-components';
+import GamePanel from './GamePanel';
+// import TypedShell from './TypedShell';
 
-function App() {
-  const [count, setCount] = useState(0)
+const Container = styled.div`
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-weight: 300;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const Header = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: #fafafa;
+  border-bottom: 1px solid #eaeaea;
+  padding: 0 18px;
+`;
 
-export default App
+const VerticallyCenterChildren = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+const Title = styled.h1`
+  font-weight: 300;
+  color: #000;
+`;
+
+// const SubTitle = styled.h2`
+//   font-weight: 300;
+//   font-size: 18px;
+// `;
+
+const App = (): JSX.Element => (
+  <Container>
+    <Header>
+      <Title>react-tetris</Title>
+      {/* <SubTitle>Embed a game of Tetris in your React app</SubTitle> */}
+    </Header>
+    <VerticallyCenterChildren>
+      <GamePanel />
+    </VerticallyCenterChildren>
+  </Container>
+);
+
+export default App;

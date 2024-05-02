@@ -78,7 +78,6 @@ const GamePanel = (): JSX.Element => (
         controller
       }) => (
         <div>
-          <p>state{state}</p>
           <div style={{ opacity: state === 'PLAYING' ? 1 : 0.5 }}>
             <Score>
               <LeftHalf>
